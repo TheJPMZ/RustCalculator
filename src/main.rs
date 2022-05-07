@@ -1,5 +1,10 @@
 use std::io;
 
+
+fn Fahrenheit_to_Celsius(f: f64) -> f64 {   
+    return (f - 32.0) * 5.0 / 9.0;
+}
+
 fn main() {
     println!("Welcome to the calculator!");
 
