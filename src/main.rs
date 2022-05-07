@@ -4,6 +4,21 @@ fn CelciusToFahrenheit(celcius: f32) -> f32 {
     return celcius * 9.0 / 5.0 + 32.0;
 }
 
+fn CelciusMenu() {
+    println!("Enter a temperature in Celcius:");
+    let mut celcius = String::new();
+    io::stdin()
+        .read_line(&mut celcius)
+        .expect("Failed to read line");
+    let celcius: f32 = match celcius.trim().parse() {
+        Ok(num) => num,
+        Err(_) => {
+            println!("Please enter a number");
+            return;
+        }
+    };
+    println!("{} Celcius is {} Fahrenheit", celcius, CelciusToFahrenheit(celcius));
+}
 
 fn main() {
     println!("Welcome to the calculator!");
@@ -27,6 +42,7 @@ fn main() {
         match choice {
             1 => { 
                 println!("===Celcius===");
+                CelciusMenu();
             },
             2 => { 
                 println!("===Fahrenheit===");
